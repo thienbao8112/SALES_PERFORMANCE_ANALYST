@@ -1,0 +1,62 @@
+// =====================
+// STAR SCHEMA - SUPERSTORE (NO DIM_SHIPPING)
+// =====================
+
+Table fact_sales {
+  order_id TEXT
+  customer_id TEXT
+  product_id TEXT
+  order_date DATE
+  ship_mode TEXT
+  location_id INT
+
+  sales NUMERIC
+  quantity INT
+  discount NUMERIC
+  profit NUMERIC
+  shipping_cost NUMERIC
+}
+
+Table dim_customer {
+  customer_id TEXT [pk]
+  customer_name TEXT
+  segment TEXT
+}
+
+Table dim_product {
+  product_id TEXT [pk]
+  product_name TEXT
+  category TEXT
+  sub_category TEXT
+}
+
+Table dim_location {
+  location_id INT [pk]
+  country TEXT
+  state TEXT
+  city TEXT
+  postal_code TEXT
+  market TEXT
+  region TEXT
+}
+
+Table dim_date {
+  date DATE [pk]
+  day INT
+  month INT
+  year INT
+  quarter INT
+  weekday INT
+  weekday_name TEXT
+  month_name TEXT
+  is_weekend BOOLEAN
+}
+
+// =====================
+// RELATIONSHIPS
+// =====================
+
+Ref: fact_sales.customer_id > dim_customer.customer_id
+Ref: fact_sales.product_id > dim_product.product_id
+Ref: fact_sales.order_date > dim_date.date
+Ref: fact_sales.location_id > dim_location.location_id

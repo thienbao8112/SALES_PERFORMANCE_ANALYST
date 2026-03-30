@@ -1,0 +1,132 @@
+project:
+  name: sales-performance-analyst
+  title: Sales Performance Analyst (Superstore)
+  description: >-
+    End-to-end sales analysis project using a Superstore dataset, SQL star-schema modeling,
+    Apriori market basket analysis, and a Power BI dashboard.
+  generated_on: "2026-03-30"
+  owner:
+    name: ""
+    contact: ""
+  tags:
+    - analytics
+    - sql
+    - python
+    - powerbi
+    - star-schema
+
+assets:
+  - id: superstore_raw_csv
+    type: dataset
+    path: data_model/01_data_superstore_raw.csv
+    format: csv
+    stats:
+      line_count_including_header: 51291
+    fingerprint:
+      sha256: 525e70f3eede56f7bee7dee250b5897dbbdbc777f0c8fcf3464b6c29f666d4b6
+      bytes: 12130008
+
+  - id: sql_star_schema_model
+    type: sql
+    path: data_model/02_sql_superstore_data_modeling.sql
+    dialect_hint: "postgresql-like" # Uses TO_DATE + SERIAL; adjust as needed for your DB
+    fingerprint:
+      sha256: ea8568c1e690e417011f7706d8e7d1b90e20aa7a95f82d47eaffe33b3d534667
+      bytes: 3417
+
+  - id: apriori_notebook
+    type: notebook
+    path: notebooks/03_notebook_superstore_market_basket_apriori.ipynb
+    language: python
+    fingerprint:
+      sha256: f10ca634bd9bfa5057ffa46644599cd874f3d87ba4f1c5d04331a85757a3fd50
+      bytes: 94567
+
+  - id: er_diagram_source
+    type: diagram_source
+    path: data_model/er_diagram_superstore_dbdiagram.txt
+    format: dbdiagram
+    fingerprint:
+      sha256: 47eaee3770f2b981311484998091ea5b91359413fc39dfd76b101df0447e0311
+      bytes: 1066
+
+  - id: er_diagram_pdf
+    type: diagram
+    path: data_model/diagram_superstore_er.pdf
+    format: pdf
+    fingerprint:
+      sha256: 43c89005e1840197b2e9746673bb2bec22f0ebcaad9e325ac68153982edbd69f
+      bytes: 323021
+
+  - id: data_dictionary
+    type: documentation
+    path: data_model/DATA_DICTIONARY.md
+    format: markdown
+    fingerprint:
+      sha256: 5cb8c4fa7aaa243ba6b59f44831fba26f8fe119ec17809f5492b1c7e2faa3fa6
+      bytes: 4754
+
+  - id: powerbi_dashboard
+    type: dashboard
+    tool: powerbi
+    path: 04_dashboard_superstore_powerbi.pbix
+    fingerprint:
+      sha256: c20119d55189430f25ce9d94f8b79a4dcb90f67a467ce7c15a44a95759f3f6fd
+      bytes: 3011798
+
+  - id: dashboard_snapshot_pdf
+    type: export
+    tool: powerbi
+    path: 05_export_superstore_powerbi_dashboard.pdf
+    fingerprint:
+      sha256: 7e1f5b37121ef6f37e5aa740bbb53ffb4c8a7238440f02ccdd008008d6976522
+      bytes: 6014064
+
+  - id: presentation_pdf
+    type: presentation
+    path: 06_presentation_superstore_sales_performance.pdf
+    fingerprint:
+      sha256: fbd94a91f6097d5322f96db5d3423501045be105f7646c35d6a0829135c32618
+      bytes: 2613718
+
+  - id: readme
+    type: documentation
+    path: README.md
+    format: markdown
+    fingerprint:
+      sha256: 739b1e6ee9132f1837e579cb8b4de58000fbf6521529001e5c7f0235f444aad4
+      bytes: 2506
+
+  - id: python_requirements
+    type: config
+    path: requirements.txt
+    format: pip
+    fingerprint:
+      sha256: 8d14ff392b83412508c33c9ed3af53334bf59655b87058b1a5c1d5709d514622
+      bytes: 48
+
+  - id: semantic_layer
+    type: documentation
+    path: SEMANTIC_LAYER.md
+    format: markdown
+    fingerprint:
+      sha256: e8be6adaee8791fce83be63a6d815ac6b27213f91f1648457b0155756c392c1c
+      bytes: 1386
+
+model:
+  name: superstore_star_schema
+  fact_table: fact_sales
+  dimension_tables:
+    - dim_customer
+    - dim_product
+    - dim_location
+    - dim_date
+  relationships:
+    - fact_sales.customer_id -> dim_customer.customer_id
+    - fact_sales.product_id -> dim_product.product_id
+    - fact_sales.order_date -> dim_date.date
+    - fact_sales.location_id -> dim_location.location_id
+
+notes:
+  - "SHA-256 hashes and file sizes captured on 2026-03-30 (macOS shasum/stat)."
+  - "If you rename/move files, regenerate this metadata.yml to keep fingerprints accurate."

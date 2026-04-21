@@ -7,7 +7,9 @@
 - Turn raw Superstore transactions into an analysis-ready model + repeatable insights (sales, profit, shipping performance, and customer segmentation).
 
 High discounting impact: Orders with discount rates > 20% consistently resulted in negative profit margins.
-Customer growth: New customer acquisition showed limited growth, indicating a need for improved acquisition Strategies:
+Customer growth: New customer acquisition showed limited growth, indicating a need for improved acquisition 
+
+Strategies:
 + Market basket opportunities:
 + Identified high-frequency product pairings for cross-sell (Furnishings + Storage)
 + Customer segmentation (RFM-based strategy): “At Risk” customers: Apply targeted discounts to improve retention.

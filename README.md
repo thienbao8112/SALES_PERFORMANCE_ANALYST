@@ -10,11 +10,12 @@ High discounting impact: Orders with discount rates > 20% consistently resulted 
 Customer growth: New customer acquisition showed limited growth, indicating a need for improved acquisition 
 
 Strategies:
-+ Market basket opportunities:
 + Identified high-frequency product pairings for cross-sell (Furnishings + Storage)
-+ Customer segmentation (RFM-based strategy): “At Risk” customers: Apply targeted discounts to improve retention.
-+ Loyal customers: Reduce discount intensity, as they demonstrate lower price sensitivity.
++ Customer segmentation (RFM-based strategy):
+ - “At Risk” customers: Apply targeted discounts to improve retention.
+ - Loyal customers: Reduce discount intensity, as they demonstrate lower price sensitivity.
 + Recommended strategic discounting during peak seasons to maximize revenue capture.
++ 
 ## Key Features
 
 - Star-schema data model with clean date handling
